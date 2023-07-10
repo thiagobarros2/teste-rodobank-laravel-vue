@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Caminhao;
+use App\Models\Transportadora;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Motorista extends Model
 {
@@ -13,26 +17,14 @@ class Motorista extends Model
 
     protected $table = 'motorista';
 
-    protected $primaryKey = 'id';
+    protected $guarded = ['id'];
 
-    protected $fillable = [
-        'id',
-        'nome',
-        'cpf',
-        'data_nascimento',
-        'email',
-        'transportadora_id',
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    ];
-
-    public function transportadora()
+    public function transportadora(): BelongsTo
     {
         return $this->belongsTo(Transportadora::class);
     }
 
-    public function caminhoes()
+    public function caminhoes(): HasMany
     {
         return $this->hasMany(Caminhao::class);
     }

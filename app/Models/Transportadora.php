@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Transportadora extends Model
 {
@@ -13,24 +14,14 @@ class Transportadora extends Model
 
     protected $table = 'transportadora';
 
-    protected $primaryKey = 'id';
-
-    protected $fillable = [
-        'id',
-        'nome',
-        'cnpj',
-        'status',
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    ];
-
-    public function motoristas()
+    protected $guarded = ['id'];
+    
+    public function motoristas(): HasMany
     {
         return $this->hasMany(Motorista::class);
     }
 
-    public function caminhoes()
+    public function caminhoes(): HasMany
     {
         return $this->hasMany(Caminhao::class);
     }

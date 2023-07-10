@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Modelo extends Model
 {
@@ -13,13 +14,10 @@ class Modelo extends Model
 
     protected $table = 'modelo';
 
-    protected $primaryKey = 'id';
+    protected $guarded = ['id'];
 
-    protected $fillable = [
-        'id',
-        'nome',
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    ];
+    public function caminhao(): BelongsToMany
+    {
+        return $this->belongsToMany(Caminhao::class);
+    }
 }

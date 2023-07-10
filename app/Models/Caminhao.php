@@ -15,19 +15,7 @@ class Caminhao extends Model
 
     protected $table = 'caminhao';
 
-    protected $primaryKey = 'id';
-
-    protected $fillable = [
-        'id',
-        'placa',
-        'cor',
-        'modelo_id',
-        'motorista_id',
-        'transportadora_id',
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    ];
+    protected $guarded = ['id'];
 
     public function transportadora(): BelongsTo
     {
