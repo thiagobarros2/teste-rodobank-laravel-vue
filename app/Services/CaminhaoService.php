@@ -17,37 +17,35 @@ class CaminhaoService implements CRUD
     {
         $offset = $offset ?: Caminhao::count();
 
-        return $this->caminhao::select('id', 'motorista_id', 'modelo_id', 'placa', 'cor')->paginate($offset);
+        return $this->caminhao::select(
+            'id',
+            'motorista_id',
+            'modelo_id',
+            'placa',
+            'cor'
+        )->paginate($offset);
     }
 
     public function obterPor(string $id): ?Caminhao
     {
-        return $this->caminhao::select('id', 'motorista_id', 'modelo_id', 'placa', 'cor')
+        return $this->caminhao::select(
+            'id',
+            'motorista_id',
+            'modelo_id',
+            'placa',
+            'cor'
+        )
             ->find($id);
     }
 
     public function criar(array $request): void
     {
-        $this->caminhao::create(
-            [
-                'placa' => $request['placa'],
-                'cor' => $request['cor'],
-                'modelo_id' => $request['modelo_id'],
-                'motorista_id' => $request['motorista_id'],
-                'transportadora_id' => $request['transportadora_id'],
-            ]
-        );
+        $this->caminhao::create($request);
     }
 
     public function atualizar(string $id, array $request): void
     {
-        $caminhao = $this->caminhao::find($id);
-        $caminhao->placa = isset($request['placa']) ? $request['placa'] : $caminhao->placa;
-        $caminhao->cor = isset($request['cor']) ? $request['cor'] : $caminhao->cor;
-        $caminhao->modelo_id = isset($request['modelo_id']) ? $request['modelo_id'] : $caminhao->modelo_id;
-        $caminhao->motorista_id = isset($request['motorista_id']) ? $request['motorista_id'] : $caminhao->motorista_id;
-        $caminhao->transportadora_id = isset($request['transportadora_id']) ? $request['transportadora_id'] : $caminhao->transportadora_id;
-        $caminhao->save();
+        $this->caminhao::where('id', $id)->update($request);
     }
 
     public function deletar(string $id): void

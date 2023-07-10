@@ -17,29 +17,29 @@ class ModeloService implements CRUD
     {
         $offset = $offset ?: Modelo::count();
 
-        return $this->modelo::select('id', 'nome')->paginate($offset);
+        return $this->modelo::select(
+            'id',
+            'nome'
+        )->paginate($offset);
     }
 
     public function obterPor(string $id): ?Modelo
     {
-        return $this->modelo::select('id', 'nome')
+        return $this->modelo::select(
+            'id',
+            'nome'
+        )
             ->find($id);
     }
 
     public function criar(array $request): void
     {
-        $this->modelo::create(
-            [
-                'nome' => $request['nome'],
-            ]
-        );
+        $this->modelo::create($request);
     }
 
     public function atualizar(string $id, array $request): void
     {
-        $modelo = $this->modelo::find($id);
-        $modelo->nome = isset($request['nome']) ? $request['nome'] : $modelo->nome;
-        $modelo->save();
+        $this->modelo::where('id', $id)->update($request);
     }
 
     public function deletar(string $id): void

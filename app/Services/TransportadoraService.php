@@ -18,34 +18,33 @@ class TransportadoraService implements CRUD
         $offset = $offset ?: Transportadora::count();
 
         return $this->transportadora::with('motoristas:id,transportadora_id,nome')
-            ->select('id', 'nome', 'cnpj', 'status')
+            ->select(
+                'id',
+                'nome',
+                'cnpj',
+                'status'
+            )
             ->paginate($offset);
     }
 
     public function obterPor(string $id): ?Transportadora
     {
-        return $this->transportadora::select('nome', 'cnpj', 'status')
+        return $this->transportadora::select(
+            'nome',
+            'cnpj',
+            'status'
+        )
             ->find($id);
     }
 
     public function criar(array $request): void
     {
-
-        $this->transportadora::create(
-            [
-                'nome' => $request['nome'],
-                'cnpj' => $request['cnpj'],
-            ]
-        );
+        $this->transportadora::create($request);
     }
 
     public function atualizar(string $id, array $request): void
     {
-        $transportadora = $this->transportadora::find($id);
-        $transportadora->nome = isset($request['nome']) ? $request['nome'] : $transportadora->nome;
-        $transportadora->cnpj = isset($request['cnpj']) ? $request['cnpj'] : $transportadora->cnpj;
-        $transportadora->status = isset($request['status']) ? $request['status'] : $transportadora->status;
-        $transportadora->save();
+        $this->transportadora::where('id', $id)->update($request);
     }
 
     public function deletar(string $id): void
