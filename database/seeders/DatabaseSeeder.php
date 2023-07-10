@@ -14,16 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('users')->insert([
-            'name' => 'Alexandre Barroso Costa',
-            'email' => 'alexandre.barroso@rodobank.com.br',
-            'password' => Hash::make('password'),
-        ]);
-        DB::table('users')->insert([
-            'name' => 'Thiago Barros',
-            'email' => 'thiagobarros95@gmail.com',
-            'password' => Hash::make('password'),
-        ]);
+        \App\Models\User::insert(
+            [
+                [
+                    'name' => 'Alexandre Barroso Costa',
+                    'email' => 'alexandre.barroso@rodobank.com.br',
+                    'password' => Hash::make('password'),
+                ],
+                [
+                    'name' => 'Thiago Barros',
+                    'email' => 'thiagobarros95@gmail.com',
+                    'password' => Hash::make('password'),
+                ]
+            ]
+        );
         \App\Models\User::factory()->count(5)->create();
         \App\Models\Transportadora::factory()->count(5)->create();
         \App\Models\Motorista::factory()->count(5)->create();

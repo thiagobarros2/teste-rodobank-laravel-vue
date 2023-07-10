@@ -26,16 +26,22 @@ class AtualizarTransportadoraRequest extends FormRequest
     {
         return [
             'nome' => [
+                'sometimes',
+                'required',
                 'string',
                 'max:100',
             ],
             'cnpj' => [
+                'sometimes',
+                'required',
                 'numeric',
                 'digits:14',
                 'unique:App\Models\Transportadora,cnpj',
                 new CNPJ,
             ],
             'status' => [
+                'sometimes',
+                'required',
                 'integer',
                 Rule::in(
                     TransportadoraStatus::ATIVADO->status(),

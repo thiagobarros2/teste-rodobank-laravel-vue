@@ -23,21 +23,31 @@ class AtualizarCaminhaoRequest extends FormRequest
     {
         return [
             'placa' => [
+                'sometimes',
+                'required',
                 'string',
                 'unique:App\Models\Caminhao,placa',
                 'size:8',
             ],
             'motorista_id' => [
+                'sometimes',
+                'required',
                 'integer',
             ],
             'modelo_id' => [
+                'sometimes',
+                'required',
                 'integer',
             ],
             'cor' => [
+                'sometimes',
+                'required',
                 'string',
                 'max:50',
             ],
             'transportadora_id' => [
+                'sometimes',
+                'required',
                 'integer',
             ],
         ];

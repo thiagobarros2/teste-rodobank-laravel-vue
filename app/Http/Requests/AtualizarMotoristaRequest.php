@@ -25,6 +25,8 @@ class AtualizarMotoristaRequest extends FormRequest
     {
         return [
             'nome' => [
+                'sometimes',
+                'required',
                 'string',
                 'max:100',
             ],

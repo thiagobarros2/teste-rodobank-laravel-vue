@@ -23,6 +23,8 @@ class AtualizarModeloRequest extends FormRequest
     {
         return [
             'nome' => [
+                'sometimes',
+                'required',
                 'string',
                 'max:50',
             ],
