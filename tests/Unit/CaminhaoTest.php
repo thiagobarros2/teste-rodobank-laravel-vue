@@ -118,9 +118,9 @@ test('Erro', function () {
     $resultadoUpdate = (new CaminhaoController($servico))->update(new AtualizarCaminhaoRequest, 1);
     $resultadoDelete = (new CaminhaoController($servico))->destroy(1);
 
-    expect($resultadoIndex)->toEqual($ErroEsperado);
-    expect($resultadoShow)->toEqual($ErroEsperado);
-    expect($resultadoCreate)->toEqual($ErroEsperado);
-    expect($resultadoUpdate)->toEqual($ErroEsperado);
-    expect($resultadoDelete)->toEqual($ErroEsperado);
+    expect($resultadoIndex->original)->toEqual($ErroEsperado->original);
+    expect($resultadoShow->original)->toEqual($ErroEsperado->original);
+    expect($resultadoCreate->original)->toEqual($ErroEsperado->original);
+    expect($resultadoUpdate->original)->toEqual($ErroEsperado->original);
+    expect($resultadoDelete->original)->toEqual($ErroEsperado->original);
 });
