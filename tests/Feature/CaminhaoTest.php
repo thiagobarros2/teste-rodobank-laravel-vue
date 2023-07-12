@@ -1,11 +1,11 @@
 <?php
 
-use App\Models\Modelo;
 use App\Models\Caminhao;
+use App\Models\Modelo;
 use App\Models\Motorista;
-use Illuminate\Http\Response;
 use App\Models\Transportadora;
 use Database\Factories\CaminhaoFactory;
+use Illuminate\Http\Response;
 
 beforeEach(function () {
     $this->url = 'api/caminhoes/';
@@ -20,7 +20,7 @@ test('index', function () {
 
 test('show', function () {
     $this->withoutMiddleware()
-        ->get($this->url . $this->caminhaoId)
+        ->get($this->url.$this->caminhaoId)
         ->assertStatus(Response::HTTP_OK);
 });
 
@@ -41,7 +41,7 @@ test('store', function () {
 test('update', function () {
     $this->withoutMiddleware()
         ->put(
-            $this->url . $this->caminhaoId,
+            $this->url.$this->caminhaoId,
             [
                 'placa' => CaminhaoFactory::placa(),
                 'motorista_id' => Motorista::factory()->create()->id,
@@ -56,7 +56,7 @@ test('update', function () {
 test('update com campos vazios', function () {
     $this->withoutMiddleware()
         ->put(
-            $this->url . $this->caminhaoId,
+            $this->url.$this->caminhaoId,
             [
                 'placa' => null,
                 'motorista_id' => Motorista::factory()->create()->id,
@@ -70,6 +70,6 @@ test('update com campos vazios', function () {
 
 test('destroy', function () {
     $this->withoutMiddleware()
-        ->delete($this->url . $this->caminhaoId)
+        ->delete($this->url.$this->caminhaoId)
         ->assertStatus(Response::HTTP_NO_CONTENT);
 });

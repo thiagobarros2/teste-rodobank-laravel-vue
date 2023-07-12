@@ -2,15 +2,15 @@
 
 namespace Tests\Unit;
 
-use Mockery;
-use Exception;
-use App\Interfaces\CRUD;
-use App\Models\Caminhao;
-use Illuminate\Http\JsonResponse;
-use App\Http\Requests\PaginacaoRequest;
-use App\Http\Requests\CriarCaminhaoRequest;
 use App\Http\Controllers\CaminhaoController;
 use App\Http\Requests\AtualizarCaminhaoRequest;
+use App\Http\Requests\CriarCaminhaoRequest;
+use App\Http\Requests\PaginacaoRequest;
+use App\Interfaces\CRUD;
+use App\Models\Caminhao;
+use Exception;
+use Illuminate\Http\JsonResponse;
+use Mockery;
 
 test('index', function () {
     $request = new PaginacaoRequest();
@@ -104,13 +104,13 @@ test('delete em massa', function () {
 
 test('Erro', function () {
     $request = new PaginacaoRequest();
-    $ErroEsperado = new JsonResponse("Message", JsonResponse::HTTP_BAD_REQUEST);
+    $ErroEsperado = new JsonResponse('Message', JsonResponse::HTTP_BAD_REQUEST);
     $servico = Mockery::mock(CRUD::class);
-    $servico->shouldReceive('obterTodos')->andThrow(new Exception("Message"));
-    $servico->shouldReceive('obterPor')->andThrow(new Exception("Message"));
-    $servico->shouldReceive('criar')->andThrow(new Exception("Message"));
-    $servico->shouldReceive('atualizar')->andThrow(new Exception("Message"));
-    $servico->shouldReceive('deletar')->andThrow(new Exception("Message"));
+    $servico->shouldReceive('obterTodos')->andThrow(new Exception('Message'));
+    $servico->shouldReceive('obterPor')->andThrow(new Exception('Message'));
+    $servico->shouldReceive('criar')->andThrow(new Exception('Message'));
+    $servico->shouldReceive('atualizar')->andThrow(new Exception('Message'));
+    $servico->shouldReceive('deletar')->andThrow(new Exception('Message'));
 
     $resultadoIndex = (new CaminhaoController($servico))->index($request);
     $resultadoShow = (new CaminhaoController($servico))->show($request);

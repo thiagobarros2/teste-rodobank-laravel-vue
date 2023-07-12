@@ -2,18 +2,18 @@
 
 namespace Tests\Unit;
 
-use Mockery;
-use DateTime;
-use Exception;
-use DateInterval;
-use App\Interfaces\CRUD;
-use App\Models\Motorista;
-use Illuminate\Http\JsonResponse;
-use App\Http\Requests\PaginacaoRequest;
-use Avlima\PhpCpfCnpjGenerator\Generator;
-use App\Http\Requests\CriarMotoristaRequest;
 use App\Http\Controllers\MotoristaController;
 use App\Http\Requests\AtualizarMotoristaRequest;
+use App\Http\Requests\CriarMotoristaRequest;
+use App\Http\Requests\PaginacaoRequest;
+use App\Interfaces\CRUD;
+use App\Models\Motorista;
+use Avlima\PhpCpfCnpjGenerator\Generator;
+use DateInterval;
+use DateTime;
+use Exception;
+use Illuminate\Http\JsonResponse;
+use Mockery;
 
 test('Index', function () {
     $request = new PaginacaoRequest();
@@ -106,13 +106,13 @@ test('Delete em massa', function () {
 
 test('Erro', function () {
     $request = new PaginacaoRequest();
-    $ErroEsperado = new JsonResponse("Message", JsonResponse::HTTP_BAD_REQUEST);
+    $ErroEsperado = new JsonResponse('Message', JsonResponse::HTTP_BAD_REQUEST);
     $servico = Mockery::mock(CRUD::class);
-    $servico->shouldReceive('obterTodos')->andThrow(new Exception("Message"));
-    $servico->shouldReceive('obterPor')->andThrow(new Exception("Message"));
-    $servico->shouldReceive('criar')->andThrow(new Exception("Message"));
-    $servico->shouldReceive('atualizar')->andThrow(new Exception("Message"));
-    $servico->shouldReceive('deletar')->andThrow(new Exception("Message"));
+    $servico->shouldReceive('obterTodos')->andThrow(new Exception('Message'));
+    $servico->shouldReceive('obterPor')->andThrow(new Exception('Message'));
+    $servico->shouldReceive('criar')->andThrow(new Exception('Message'));
+    $servico->shouldReceive('atualizar')->andThrow(new Exception('Message'));
+    $servico->shouldReceive('deletar')->andThrow(new Exception('Message'));
 
     $resultadoIndex = (new MotoristaController($servico))->index($request);
     $resultadoShow = (new MotoristaController($servico))->show($request);
