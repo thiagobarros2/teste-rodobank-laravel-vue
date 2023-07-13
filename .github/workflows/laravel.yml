@@ -73,7 +73,7 @@ jobs:
         run: php artisan config:clear
 
       - name: Run Migration
-        run: php artisan migrate -v
+        run: php artisan migrate -v --seed
         env:
           DB_PORT: ${{ job.services.postgres.ports[5432] }}
           REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
