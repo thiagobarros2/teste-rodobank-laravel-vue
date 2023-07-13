@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Interfaces\CRUD;
 use App\Models\Motorista;
+use Carbon\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class MotoristaService implements CRUD
@@ -39,11 +40,13 @@ class MotoristaService implements CRUD
 
     public function criar(array $request): void
     {
+        $request['data_nascimento'] = Carbon::createFromDate($request['data_nascimento']);
         $this->motorista::create($request);
     }
 
     public function atualizar(string $id, array $request): void
     {
+        $request['data_nascimento'] = Carbon::createFromDate($request['data_nascimento']);
         $this->motorista::where('id', $id)->update($request);
     }
 
