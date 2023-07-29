@@ -1,13 +1,10 @@
-{
-    "commit-msg": {
+{  
+    "pre-commit": {
         "enabled": true,
         "actions": [
             {
-                "action": "\\CaptainHook\\App\\Hook\\Message\\Action\\Beams",
-                "options": {
-                    "subjectLength": 50,
-                    "bodyLineLength": 72
-                }
+                "action": "vendor/bin/lint",
+                "options": []
             }
         ]
     },
@@ -16,42 +13,5 @@
         "actions": [
             "vendor/bin/pest"
         ]
-    },
-    "pre-commit": {
-        "enabled": true,
-        "actions": [
-            {
-                "action": "\\CaptainHook\\App\\Hook\\PHP\\Action\\Linting",
-                "options": []
-            },
-            {
-                "action": "vendor/bin/lint",
-                "options": []
-            }
-        ]
-    },
-    "prepare-commit-msg": {
-        "enabled": false,
-        "actions": []
-    },
-    "post-commit": {
-        "enabled": false,
-        "actions": []
-    },
-    "post-merge": {
-        "enabled": false,
-        "actions": []
-    },
-    "post-checkout": {
-        "enabled": false,
-        "actions": []
-    },
-    "post-rewrite": {
-        "enabled": false,
-        "actions": []
-    },
-    "post-change": {
-        "enabled": false,
-        "actions": []
     }
 }
