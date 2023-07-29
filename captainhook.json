@@ -3,7 +3,7 @@
         "enabled": true,
         "actions": [
             {
-                "action": "pint",
+                "action": "./vendor/bin/pint",
                 "options": []
             }
         ]
@@ -12,7 +12,7 @@
         "enabled": false,
         "actions": [
             {
-                "action": "pest"
+                "action": "./vendor/bin/pest"
             }
         ]
     }
