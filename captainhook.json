@@ -5,12 +5,7 @@
             {
                 "action": "./vendor/bin/pint",
                 "options": []
-            }
-        ]
-    },
-    "pre-push": {
-        "enabled": false,
-        "actions": [
+            },
             {
                 "action": "./vendor/bin/pest"
             }
