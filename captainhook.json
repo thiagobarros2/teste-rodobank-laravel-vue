@@ -3,7 +3,7 @@
         "enabled": true,
         "actions": [
             {
-                "action": "vendor/bin/lint",
+                "action": "lint",
                 "options": []
             }
         ]
@@ -11,7 +11,7 @@
     "pre-push": {
         "enabled": false,
         "actions": [
-            "vendor/bin/pest"
+            "pest"
         ]
     }
 }
