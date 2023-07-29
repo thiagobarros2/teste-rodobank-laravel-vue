@@ -14,7 +14,6 @@
     },
     "require-dev": {
         "avlima/php-cpf-cnpj-generator": "^1.0",
-        "captainhook/captainhook": "^5.16",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.10",
         "mockery/mockery": "^1.4.4",
