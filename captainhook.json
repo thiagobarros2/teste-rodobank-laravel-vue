@@ -3,7 +3,7 @@
         "enabled": true,
         "actions": [
             {
-                "action": "lint",
+                "action": "pint",
                 "options": []
             }
         ]
@@ -11,7 +11,9 @@
     "pre-push": {
         "enabled": false,
         "actions": [
-            "pest"
+            {
+                "action": "pest"
+            }
         ]
     }
 }
