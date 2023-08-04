@@ -17,6 +17,7 @@
         "captainhook/captainhook": "^5.16",
         "captainhook/plugin-composer": "^5.3",
         "fakerphp/faker": "^1.9.1",
+        "infection/infection": "^0.27.0",
         "laravel/pint": "^1.10",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
@@ -63,7 +64,8 @@
         "allow-plugins": {
             "php-http/discovery": true,
             "pestphp/pest-plugin": true,
-            "captainhook/plugin-composer": true
+            "captainhook/plugin-composer": true,
+            "infection/extension-installer": true
         }
     },
     "minimum-stability": "stable",
