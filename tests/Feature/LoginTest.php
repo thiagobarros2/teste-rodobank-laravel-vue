@@ -18,6 +18,6 @@ test('unauthoried', function () {
         'password' => 'wrongpassword',
     ])
         ->assertStatus(Response::HTTP_UNAUTHORIZED);
-        expect($response->original)->toHaveKey('error');
-        expect($response->original['error'])->toBe('Unauthorized');
+    expect($response->original)->toHaveKey('error');
+    expect($response->original['error'])->toBe('Unauthorized');
 });
