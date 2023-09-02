@@ -36,7 +36,7 @@ class AtualizarMotoristaRequest extends FormRequest
                 'sometimes',
                 'numeric',
                 'digits:11',
-               // 'unique:App\Models\Motorista,cpf',
+                // 'unique:App\Models\Motorista,cpf',
                 new CPF,
             ],
             'data_nascimento' => [
