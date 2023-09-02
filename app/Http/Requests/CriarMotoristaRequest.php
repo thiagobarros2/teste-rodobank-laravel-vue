@@ -25,11 +25,13 @@ class CriarMotoristaRequest extends FormRequest
     {
         return [
             'nome' => [
+                'bail',
                 'required',
                 'string',
                 'max:100',
             ],
             'cpf' => [
+                'bail',
                 'required',
                 'numeric',
                 'digits:11',
@@ -37,14 +39,17 @@ class CriarMotoristaRequest extends FormRequest
                 new CPF,
             ],
             'data_nascimento' => [
+                'bail',
                 'required',
                 'date_format:d-m-Y',
                 new MotoristaMaiorDeIdade,
             ],
             'email' => [
+                'bail',
                 'email',
             ],
             'transportadora_id' => [
+                'bail',
                 'required',
                 'integer',
             ],

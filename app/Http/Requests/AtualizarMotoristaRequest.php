@@ -25,25 +25,34 @@ class AtualizarMotoristaRequest extends FormRequest
     {
         return [
             'nome' => [
+                'bail',
                 'sometimes',
                 'required',
                 'string',
                 'max:100',
             ],
             'cpf' => [
+                'bail',
+                'sometimes',
                 'numeric',
                 'digits:11',
-                'unique:App\Models\Motorista,cpf',
+               // 'unique:App\Models\Motorista,cpf',
                 new CPF,
             ],
             'data_nascimento' => [
+                'bail',
+                'sometimes',
                 'date_format:d-m-Y',
                 new MotoristaMaiorDeIdade,
             ],
             'email' => [
+                'bail',
+                'sometimes',
                 'email',
             ],
             'transportadora_id' => [
+                'bail',
+                'sometimes',
                 'integer',
             ],
         ];

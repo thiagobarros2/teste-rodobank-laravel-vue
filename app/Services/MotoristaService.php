@@ -46,7 +46,7 @@ class MotoristaService implements CRUD
 
     public function atualizar(string $id, array $request): void
     {
-        $request['data_nascimento'] = Carbon::createFromDate($request['data_nascimento']);
+        $request['data_nascimento'] = Carbon::createFromDate(($request['data_nascimento'] ?? null));
         $this->motorista::where('id', $id)->update($request);
     }
 
