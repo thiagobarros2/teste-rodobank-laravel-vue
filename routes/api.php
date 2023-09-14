@@ -27,6 +27,6 @@ Route::group(['middleware' => ['jwtAuth']], function () {
         'transportadoras' => App\Http\Controllers\TransportadoraController::class,
         'motoristas' => App\Http\Controllers\MotoristaController::class,
         'modelos' => App\Http\Controllers\ModeloController::class,
-        'caminhoes' => App\Http\Controllers\CaminhaoController::class
+        'caminhoes' => App\Http\Controllers\CaminhaoController::class,
     ]);
 });
