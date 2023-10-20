@@ -2,7 +2,6 @@
 
 use App\Builders\DriverBuilder;
 
-
 it('driver builder', function () {
 
     $driver = DriverBuilder::reset()
