@@ -2,13 +2,10 @@
 
 use App\Builders\DriverBuilder;
 
-beforeEach(function () {
-    $this->driver = DriverBuilder::reset();
-});
 
 it('driver builder', function () {
 
-    $driver = $this->driver
+    $driver = DriverBuilder::reset()
         ->name('John Due')
         ->age(42)
         ->isMaried(true)
@@ -27,9 +24,8 @@ it('driver builder', function () {
 });
 
 it('driver builder only name', function () {
-    $driver = $this->driver;
-
-    $driver->name('ok')
+    $driver = DriverBuilder::reset()
+        ->name('ok')
         ->build();
 
     expect($driver->name)
