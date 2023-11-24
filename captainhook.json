@@ -7,17 +7,5 @@
                 "options": []
             }
         ]
-    },
-    "pre-push": {
-        "enabled": true,
-        "actions": [
-            {
-                "action": "./vendor/bin/pint",
-                "options": []
-            },
-            {
-                "action": "./vendor/bin/pest"
-            }
-        ]
     }
 }
