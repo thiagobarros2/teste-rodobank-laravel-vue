@@ -46,3 +46,7 @@ RUN php artisan config:cache
 
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
+
+RUN pecl channel-update pecl.php.net \ 
+    && pecl install swoole \
+    && docker-php-ext-enable swoole
