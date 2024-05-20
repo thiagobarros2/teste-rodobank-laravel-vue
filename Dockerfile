@@ -34,9 +34,9 @@ RUN groupadd -g 1000 www
 
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
-WORKDIR /var/www/api
+WORKDIR /var/www/app
 
-COPY . /var/www/api/
+COPY . /var/www/app/
 
 RUN composer install --ignore-platform-reqs
 
