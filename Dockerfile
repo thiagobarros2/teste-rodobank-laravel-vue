@@ -50,3 +50,6 @@ RUN pecl install xdebug \
 RUN pecl channel-update pecl.php.net \ 
     && pecl install swoole \
     && docker-php-ext-enable swoole
+
+RUN pecl install mongodb \
+    && docker-php-ext-enable mongodb
