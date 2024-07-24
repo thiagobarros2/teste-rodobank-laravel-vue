@@ -27,7 +27,7 @@ interface Build
     public function build(): DriverBuilder;
 }
 
-class DriverBuilder implements Name, Age, HasChildren, IsMaried, Build
+class DriverBuilder implements Age, Build, HasChildren, IsMaried, Name
 {
     public string $name;
 

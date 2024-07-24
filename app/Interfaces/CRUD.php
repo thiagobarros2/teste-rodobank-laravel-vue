@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 interface CRUD
 {
-    public function obterTodos(int $offset = null): object;
+    public function obterTodos(?int $offset = null): object;
 
     public function obterPor(string $id): ?Model;
 

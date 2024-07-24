@@ -13,7 +13,7 @@ class CaminhaoService implements CRUD
     ) {
     }
 
-    public function obterTodos(int $offset = null): LengthAwarePaginator
+    public function obterTodos(?int $offset = null): LengthAwarePaginator
     {
         $offset = $offset ?: Caminhao::count();
 

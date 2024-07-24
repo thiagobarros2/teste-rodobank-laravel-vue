@@ -14,7 +14,7 @@ class MotoristaService implements CRUD
     ) {
     }
 
-    public function obterTodos(int $offset = null): LengthAwarePaginator
+    public function obterTodos(?int $offset = null): LengthAwarePaginator
     {
         $offset = $offset ?: Motorista::count();
 

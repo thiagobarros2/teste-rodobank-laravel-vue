@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Models\Concert;
 use Carbon\Carbon;
 use Tests\TestCase;
-use App\Models\Concert;
 
 class CriacaoLeituraRegistroMongoDb extends TestCase
 {
@@ -17,7 +17,7 @@ class CriacaoLeituraRegistroMongoDb extends TestCase
             'vanue' => 'Carnegie Hall',
             'genres' => ['classical'],
             'ticketsSold' => 2121,
-            'performanceDate' => Carbon::now()
+            'performanceDate' => Carbon::now(),
         ]);
 
         $concert = Concert::where('performer', 'Gabizinha')->get();
