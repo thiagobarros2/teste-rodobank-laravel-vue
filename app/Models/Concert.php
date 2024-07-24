@@ -10,12 +10,14 @@ class Concert extends Model
     use HasFactory;
 
     protected $connection = 'mongodb';
+
     protected $fillable = [
         'performer',
         'venue',
         'genres',
         'ticketsSold',
-        'performanceDate'
+        'performanceDate',
     ];
+
     protected $casts = ['performanceDate' => 'datetime'];
 }
